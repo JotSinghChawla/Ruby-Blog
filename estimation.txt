@@ -1,0 +1,14 @@
+Project name - Codify Blog
+Scrum master - Veni
+
+Estimations: 
+
+    Scrum 1:
+    Choosing name for blog - 0.5 hr
+    Creating application & connecting db - 0.5 hr
+    Creating controller home index - 0.5 hr
+    Connecting layout to application - 0.5 hr
+
+    Pay per hour - 1000
+
+    Cost of project - 2000rs

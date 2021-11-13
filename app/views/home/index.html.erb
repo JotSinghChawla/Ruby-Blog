@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<title>Home</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+
+<header>
+    <%= image_tag 'building.jpg', height: "700px", width: "100%" %>
+    <div class="centered">
+        <span class="large-text-center">Code</span>
+        <span class="small-text-center">ify</span>
+    </div>
+</header>
+
+
+<div class="jumbotron text-center p-2 mt-5">
+  <h1 class="display-4"> <b> Featured Blogs </b> </h1>
+</div>
+
+  <div class="card-deck">
+        <div class="card">
+            <%= image_tag 'person1.jpg', class: "card-img-top" %>
+            <div class="card-body">
+            <h2 class="card-title">Blog 1</h2>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+            </div>
+            <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+        <div class="card">
+            <%= image_tag 'person2.jpg', class: "card-img-top" %>
+            <div class="card-body">
+            <h2 class="card-title">Blog 2</h2>
+            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+        <div class="card">
+            <%= image_tag 'person3.jpg', class: "card-img-top" %>
+            <div class="card-body">
+            <h2 class="card-title">Blog 3</h2>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            </div>
+            <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+        
+        <div class="card">
+        <%= image_tag 'person4.jpg', class: "card-img-top" %>
+            <div class="card-body">
+            <h2 class="card-title">Blog 4</h2>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
+            </div>
+            <div class="card-footer">
+            <small class="text-muted">Last updated 3 mins ago</small>
+            </div>
+        </div>
+    </div>
+
+
+</body>
+</html>

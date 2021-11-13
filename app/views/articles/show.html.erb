@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<title>Article</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+  
+  <div class="jumbotron text-center p-2 mt-2">
+  <h1 class="display-4"> <b> <%= @article.title %> </b> Blog </h1>
+  </div>
+
+  <div class="container">
+    <div class="row">
+        <div class="col-12 text-center"> 
+            <%= image_tag @article.image_link, style: "width:70%", alt: 'Blog-image'  %>
+            <div class="jumbotron p-5 mt-4">
+                <p class='lead'> <%= @article.body %> </p>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+      <h2 class="col-4">Comments: </h2>
+      <div class="col-8 p-0">
+        <%= if @article.comments.empty? then "No comments!" end %>
+        <% @article.comments.each do |comment| %>
+          <div class="d-flex">
+          <p>
+            <strong>User:</strong>
+            <%= comment.user %>
+          </p>
+          &emsp;
+          <p>
+            <strong>Comment:</strong>
+            <%= comment.body %>
+          </p>
+          <p class="ml-auto">
+            <%= link_to "Delete", [comment.article, comment], method: :delete, data: { confirm: "Are you sure?" } %>
+          </p>
+
+          </div>
+          
+          <% end %>
+      </div>
+    </div>
+    
+    <div class="row">
+      <h2 class="col-4">Add a comment:</h2>
+      
+      <%= form_with( model: [ @article, Comment.new ], local: true) do |form| %>
+        
+        <p>
+          <%= form.label :user %><br>
+          <%= form.text_field :user,placeholder: "enter name", required: true %>
+        </p>
+        
+        <p>
+          <%= form.label :comment %><br>
+          <%= form.text_area :body, placeholder: "enter comment", required: true %>
+        </p>
+        <p>
+          <%= form.submit %>
+        </p>
+      <% end %>
+    </div>
+  
+    <%= link_to "Edit Blog", edit_article_path(@article), class: "btn btn-dark" %>
+
+    <%= link_to "Delete Blog", article_path(@article),
+                  method: :delete,
+                  data: { confirm: "Are you sure?" }, 
+                  class: "btn btn-dark" %>
+  </div>
+  
+   
+</body>
+</html>

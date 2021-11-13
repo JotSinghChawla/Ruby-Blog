@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<title>Blogs Wall</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<body>
+
+    <div class="jumbotron text-center p-2 my-5">
+        <h1 class="display-4"> <b> Articles </b> </h1>
+    </div>
+
+    <div class="container-fluid">
+        <div class="row">
+            <% @articles.each do |article| %>
+            
+                <div class="col-3">
+                <div class="position-relative">
+                <div class="title-topleft"> <%= article.title %> </div>
+                
+                <a href="/articles/<%= article.id %>">
+                    <%= image_tag article.image_link, style: "width:100%", alt: 'Blog-image'  %>
+                </a>
+                <p class="mt-2"> <%= article.body %> </p>
+                </div>
+            </div>
+            <% end %>
+
+        </div>
+        
+        <div>
+            <%= link_to "New Article", '/articles/new', class: "btn btn-dark" %>
+        </div>
+    </div>
+
+
+</body>
+</html>

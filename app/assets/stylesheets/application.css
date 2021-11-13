@@ -1,0 +1,79 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require_tree .
+ *= require_self
+ */
+
+body {
+  background: red;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar {
+  height: 10vh;
+  font-size: 1.2rem;
+}
+
+.navbar-brand {
+  font-size: 1.6rem !important;
+  padding: 10px;
+}
+.navbar-brand:hover {
+  background-color: #ddd;
+}
+
+.navbar .nav-link {
+  padding-left: 15px !important;
+  padding-right: 15px !important;
+}
+
+.navbar .nav-link:hover {
+  background-color: #ddd;
+}
+
+.centered {
+  position: absolute;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.large-text-center {
+  color: #fff !important;
+  background-color: #000 !important;
+
+  padding: 8px 16px !important;
+  opacity: 0.75;
+  font-size: 50px;
+  font-weight: 500;
+}
+
+.small-text-center {
+  color: #f1f1f1 !important;
+  font-size: 52px;
+  padding-left: 5px;
+}
+
+.title-topleft {
+  color: #fff;
+  background-color: black;
+  padding: 8px 16px !important;
+  position: absolute;
+  left: 0;
+  top: 0;
+}
