@@ -16,20 +16,14 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    # render 'test'
 
     @article = Article.new(article_params)
 
-    # @article.save
     if @article.save
       redirect_to @article
       # redirect_to article_path(@article.id)
     else
-
-      puts "================================="
-      puts "#{@article.errors.inspect}"
-
-      render '/articles/new'
+      render 'new'
     end
   end
 
@@ -58,7 +52,7 @@ class ArticlesController < ApplicationController
   private
 
   def article_params
-    params.require(:article).permit(:title, :body, :image_link)
+    params.require(:article).permit(:title, :body, :image_link, :tag)
   end     
 
 end

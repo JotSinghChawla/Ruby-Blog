@@ -13,14 +13,14 @@
         <div class="row">
             <% @articles.each do |article| %>
             
-                <div class="col-3">
+                <div class="col-4">
                 <div class="position-relative">
-                <div class="title-topleft"> <%= article.title %> </div>
+                <div class="title-topleft"> <%= article.tag %> </div>
                 
                 <a href="/articles/<%= article.id %>">
                     <%= image_tag article.image_link, style: "width:100%", alt: 'Blog-image'  %>
                 </a>
-                <p class="mt-2"> <%= article.body %> </p>
+                <p class="mt-2"> <%= article.title %> </p>
                 </div>
             </div>
             <% end %>

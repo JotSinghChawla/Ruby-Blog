@@ -13,24 +13,30 @@
     <div class="container"> 
 
         <%= form_with model: @article do |form| %>
-        <div>
-            <%= form.label :title %><br>
-            <%= form.text_field :title %>
-        </div>
-        
             <div>
-            <%= form.label :image_link %><br>
-            <%= form.text_field :image_link %>
+                <%= form.label :title %><br>
+                <%= form.text_field :title %>
             </div>
 
-        <div>
-            <%= form.label :body %><br>
-            <%= form.text_area :body %>
-        </div>
+            <div>
+                <%= form.label :tag %><br>
+                <%= form.text_field :tag %>
+            </div>
+            
+            
+            <div>
+                <%= form.label :image_link %><br>
+                <%= form.text_field :image_link %>
+            </div>
 
-        <div>
-            <%= form.submit %>
-        </div>
+            <div>
+                <%= form.label :body %><br>
+                <%= form.text_area :body %>
+            </div>
+
+            <div>
+                <%= form.submit %>
+            </div>
         <% end %>
 
 

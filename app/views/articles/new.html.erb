@@ -11,14 +11,22 @@
       <div> <%= msg %> </div>
     <% end %>
   </div>
-  
-    <div>
-      <%= form.label :image_link %><br>
-      <%= form.text_field :image_link %>
-      <% @article.errors.full_messages_for(:image_link).each do |msg| %>
-        <div> <%= msg %> </div>
-      <% end %>
-    </div>
+
+  <div>
+    <%= form.label :tag %><br>
+    <%= form.text_field :tag %>
+    <% @article.errors.full_messages_for(:tag).each do |message| %>
+      <div><%= message %></div>
+    <% end %>
+  </div>
+
+  <div>
+    <%= form.label :image_link %><br>
+    <%= form.text_field :image_link %>
+    <% @article.errors.full_messages_for(:image_link).each do |msg| %>
+      <div> <%= msg %> </div>
+    <% end %>
+  </div>
 
   <div>
     <%= form.label :body %><br>
