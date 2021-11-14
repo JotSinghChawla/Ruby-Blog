@@ -27,7 +27,7 @@
           <div class="d-flex">
           <p>
             <strong>User:</strong>
-            <%= comment.user %>
+            <%= comment.user.email %>
           </p>
           &emsp;
           <p>
@@ -49,13 +49,8 @@
       
       <%= form_with( model: [ @article, Comment.new ], local: true) do |form| %>
         
+     
         <p>
-          <%= form.label :user %><br>
-          <%= form.text_field :user,placeholder: "enter name", required: true %>
-        </p>
-        
-        <p>
-          <%= form.label :comment %><br>
           <%= form.text_area :body, placeholder: "enter comment", required: true %>
         </p>
         <p>

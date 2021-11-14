@@ -1,16 +1,17 @@
 class CommentsController < ApplicationController
     
+    before_action :authenticate_user!
+
     def create
         # if request.post?
             @article = Article.find(params[:article_id])
-            @comment = @article.comments.create(comment_params)
+            @comment = @article.comments.create(comment_params.merge(user_id: current_user.id))
 
             # @comment = Comment.new(comment_params)
             # @comment.article_id ||= params[:article_id]
             # if @comments.save
-                redirect_to article_path(@article)
 
-        # end
+            redirect_to article_path(@article)
     end
 
     def destroy
