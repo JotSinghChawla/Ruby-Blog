@@ -32,9 +32,10 @@ body {
 .navbar-brand {
   font-size: 1.6rem !important;
   padding: 10px;
+  background-color: #ddd;
 }
 .navbar-brand:hover {
-  background-color: #ddd;
+  background-color: darkgrey;
 }
 
 .navbar .nav-link {
