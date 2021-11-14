@@ -1,7 +1,8 @@
 class Article < ApplicationRecord
 
     self.per_page = 6
-
+    
+    belongs_to :user
     has_many :comments, dependent: :destroy
 
     validates :title, presence: true, length: { minimum: 5 }    

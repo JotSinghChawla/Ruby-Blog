@@ -1,6 +1,6 @@
 class ArticlesController < ApplicationController
 
-  before_action :authenticate_user!
+  before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
   
   def index
     @articles = Article.paginate(page: params[:page])
@@ -19,7 +19,7 @@ class ArticlesController < ApplicationController
 
   def create
 
-    @article = Article.new(article_params)
+    @article = Article.new(article_params.merge(user_id: current_user.id))
 
     if @article.save
       redirect_to @article
