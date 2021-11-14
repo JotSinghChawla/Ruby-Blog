@@ -1,6 +1,8 @@
 class ArticlesController < ApplicationController
 
   before_action :authenticate_user!, only: [:new, :edit, :update, :destroy]
+
+  before_action :check_blog_owner, only: [ :edit, :update, :destroy ]
   
   def index
     @articles = Article.paginate(page: params[:page])
@@ -52,6 +54,16 @@ class ArticlesController < ApplicationController
 
   
   private
+
+  def check_blog_owner 
+    if user_signed_in?
+      unless current_user.id == Article.find(params[:id]).user_id
+        flash[:alert]='Access denied! You are not owner of this Blog'
+        redirect_to '/articles'
+      end
+    end
+  end
+
 
   def article_params
     params.require(:article).permit(:title, :body, :image_link, :tag)

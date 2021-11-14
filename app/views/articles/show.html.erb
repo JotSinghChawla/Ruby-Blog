@@ -58,13 +58,16 @@
         </p>
       <% end %>
     </div>
-  
-    <%= link_to "Edit Blog", edit_article_path(@article), class: "btn btn-dark" %>
 
-    <%= link_to "Delete Blog", article_path(@article),
-                  method: :delete,
-                  data: { confirm: "Are you sure?" }, 
-                  class: "btn btn-dark" %>
+      <% if @article.user_id == current_user.id %>
+        <%= link_to "Edit Blog", edit_article_path(@article), class: "btn btn-dark" %>
+
+        <%= link_to "Delete Blog", article_path(@article),
+                      method: :delete,
+                      data: { confirm: "Are you sure?" }, 
+                      class: "btn btn-dark" %>
+      <% end %>
+
   </div>
   
    
