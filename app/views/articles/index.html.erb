@@ -14,14 +14,14 @@
             <% @articles.each do |article| %>
             
             <div class="col-4">
-                <div class="position-relative">
+                <div class="position-relative my-4">
                 <div class="title-topleft"> <%= article.tag %> </div>
                 
                 <a href="/articles/<%= article.id %>">
                     <%= image_tag article.image_link, style: "width:100%; height: 300px", alt: 'Blog-image'  %>
                 </a>
-                <div class="mt-2 d-flex mb-5 pb-3"> 
-                    <p class="h2 my-auto"> <%= article.title %> </p>
+                <div class="mt-2 d-flex mb-5 pb-3 bellow_post"> 
+                    <p class="h2 my-auto "> <%= article.title %> </p>
                     <span class="my-auto blockquote-footer font-italic ml-auto" style="font-size: 1rem">
                      by <%= article.user.username.capitalize %> 
                     </span>

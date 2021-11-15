@@ -90,3 +90,9 @@ textarea.auto_resize_js {
 footer .navbar {
   height: 75px;
 }
+
+.bellow_post {
+  background: #eee;
+  padding: 10px;
+  border-radius: 12px;
+}
