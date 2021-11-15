@@ -82,3 +82,11 @@ body {
 textarea.auto_resize_js {
   overflow: hidden !important;
 }
+
+.navbar {
+  box-shadow: 0 10px 10px -10px #000000;
+}
+
+footer .navbar {
+  height: 75px;
+}

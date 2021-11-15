@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
   
-  <div class="jumbotron text-center p-2 mt-2">
+  <div class="jumbotron text-center p-2 mt-4">
   <h1 class="display-4"> <b> <%= @article.title %> </b> Blog </h1>
   </div>
 
@@ -37,7 +37,7 @@
     <div class="row">
       <h2 class="col-4">Comments: </h2>
       <div class="col-8 p-0">
-        <%= if @article.comments.empty? then "No comments!" end %>
+        <%= if @article.comments.empty? then "<mark>No comments!</mark>".html_safe end %> 
 
         <% @article.comments.each do |comment| %>
           <div class="d-flex">
@@ -50,9 +50,11 @@
               </p>
 
             <p class="ml-auto"> 
+            <% if user_signed_in? %>
               <% if current_user.id == comment.user_id %>
                 <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe , [comment.article, comment], method: :delete, data: { confirm: "Are you sure?" } %>
-              <% end %>            
+              <% end %>    
+              <% end %>        
             </p>
           </div>
           
@@ -61,6 +63,7 @@
     </div>
 
 
+    <% if user_signed_in? %>
       <% if @article.user_id == current_user.id %>
         <%= link_to 'Edit Blog <i class="fas fa-pen"></i>'.html_safe , edit_article_path(@article), class: "btn btn-dark" %>
 
@@ -69,6 +72,7 @@
                       data: { confirm: "Are you sure?" }, 
                       class: "btn btn-dark" %>
       <% end %>
+    <% end %>
 
   </div>
   

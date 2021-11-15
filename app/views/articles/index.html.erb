@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <body>
 
-    <div class="jumbotron text-center p-2 my-5">
+    <div class="jumbotron text-center p-2 mt-4 mb-5">
         <h1 class="display-4"> <b> Articles </b> </h1>
     </div>
 
@@ -18,10 +18,14 @@
                 <div class="title-topleft"> <%= article.tag %> </div>
                 
                 <a href="/articles/<%= article.id %>">
-                    <%= image_tag article.image_link, style: "width:100%", alt: 'Blog-image'  %>
+                    <%= image_tag article.image_link, style: "width:100%; height: 300px", alt: 'Blog-image'  %>
                 </a>
-                <p class="mt-2"> <%= article.title %> </p>
-                <p class="mt-2"> <%= article.user.email %> </p>
+                <div class="mt-2 d-flex mb-5 pb-3"> 
+                    <p class="h2 my-auto"> <%= article.title %> </p>
+                    <span class="my-auto blockquote-footer font-italic ml-auto" style="font-size: 1rem">
+                     by <%= article.user.username.capitalize %> 
+                    </span>
+                </div>
                 </div>
             </div>
             <% end %>

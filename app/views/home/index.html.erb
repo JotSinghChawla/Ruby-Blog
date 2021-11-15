@@ -25,12 +25,12 @@
         <% @articles.each do |article| %>   
                 <div class="card">
                     <a href="/articles/<%= article.id %>">
-                        <%= image_tag article.image_link, class: "card-img-top" %>
+                        <%= image_tag article.image_link, class: "card-img-top", height: 250 %>
                     </a>
                     
                     <div class="card-body">
                         <h2 class="card-title"> <%= article.title %> </h2>
-                        <p class="card-text"> <%= article.body %> </p>
+                        <p class="card-text"> <%= article.body.slice(0,142) %><%= if article.body.length>142 then '....' end %>  </p>
                     </div>
                     <div class="card-footer">
                         <small class="text-muted">Last updated 3 mins ago</small>
