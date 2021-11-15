@@ -18,50 +18,27 @@
   <h1 class="display-4"> <b> Featured Blogs </b> </h1>
 </div>
 
-  <div class="card-deck m-0">
-        <div class="card">
-            <%= image_tag 'person1.jpg', class: "card-img-top" %>
-            <div class="card-body">
-            <h2 class="card-title">Blog 1</h2>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-            </div>
-            <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-        </div>
-        <div class="card">
-            <%= image_tag 'person2.jpg', class: "card-img-top" %>
-            <div class="card-body">
-            <h2 class="card-title">Blog 2</h2>
-            <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-            </div>
-            <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-        </div>
-        <div class="card">
-            <%= image_tag 'person3.jpg', class: "card-img-top" %>
-            <div class="card-body">
-            <h2 class="card-title">Blog 3</h2>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-        </div>
-        
-        <div class="card">
-        <%= image_tag 'person4.jpg', class: "card-img-top" %>
-            <div class="card-body">
-            <h2 class="card-title">Blog 4</h2>
-            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This card has even longer content than the first to show that equal height action.</p>
-            </div>
-            <div class="card-footer">
-            <small class="text-muted">Last updated 3 mins ago</small>
-            </div>
-        </div>
+<% if @articles.empty? %>
+    <h2 class="text-center text-muted"> Will be added soon... </h2>
+<% else %>
+    <div class="card-deck m-0">
+        <% @articles.each do |article| %>   
+                <div class="card">
+                    <a href="/articles/<%= article.id %>">
+                        <%= image_tag article.image_link, class: "card-img-top" %>
+                    </a>
+                    
+                    <div class="card-body">
+                        <h2 class="card-title"> <%= article.title %> </h2>
+                        <p class="card-text"> <%= article.body %> </p>
+                    </div>
+                    <div class="card-footer">
+                        <small class="text-muted">Last updated 3 mins ago</small>
+                    </div>
+                </div>
+        <% end %> 
     </div>
-
+<% end %>
 
 </body>
 </html>
