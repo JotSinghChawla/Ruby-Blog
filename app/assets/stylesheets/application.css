@@ -78,3 +78,7 @@ body {
   left: 0;
   top: 0;
 }
+
+textarea.auto_resize_js {
+  overflow: hidden !important;
+}

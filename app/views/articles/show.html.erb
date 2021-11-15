@@ -18,51 +18,53 @@
             </div>
         </div>
     </div>
+
+        
+    <div class="row">
+      <h2 class="col-4">Add a comment:</h2>
+
+      <div class="col-8">
+        
+        <%= form_with( model: [ @article, Comment.new ], local: true) do |form| %>
+          <p class="row">
+            <%= form.text_area :body, placeholder: "enter comment", cols: 65, rows: 1 , class: "p-2 border-warning border-top-0 border-left-0 border-right-0 border-bottom rounded py-auto auto_resize_js", required: true %>
+            <%= form.submit "Add comment", class:" btn btn-primary my-auto ml-auto"  %>
+          </p>
+        <% end %>
+      </div>
+    </div>
     
     <div class="row">
       <h2 class="col-4">Comments: </h2>
       <div class="col-8 p-0">
         <%= if @article.comments.empty? then "No comments!" end %>
+
         <% @article.comments.each do |comment| %>
           <div class="d-flex">
-          <p>
-            <strong>User:</strong>
-            <%= comment.user.email %>
-          </p>
-          &emsp;
-          <p>
-            <strong>Comment:</strong>
-            <%= comment.body %>
-          </p>
-          <p class="ml-auto">
-            <%= link_to "Delete", [comment.article, comment], method: :delete, data: { confirm: "Are you sure?" } %>
-          </p>
+            <div class="col-1 px-0 pt-1 text-center">
+            <%= image_tag comment.user.image_link, class: 'img-fluid rounded-circle mr-1', style: "height: 40px; width: 40px" %>
+            </div>
+            <p>
+              <strong> <%= comment.user.username %> </strong> <br>
+              <%= comment.body %>
+              </p>
 
+            <p class="ml-auto"> 
+              <% if current_user.id == comment.user_id %>
+                <%= link_to '<i class="far fa-trash-alt"></i>'.html_safe , [comment.article, comment], method: :delete, data: { confirm: "Are you sure?" } %>
+              <% end %>            
+            </p>
           </div>
           
           <% end %>
       </div>
     </div>
-    
-    <div class="row">
-      <h2 class="col-4">Add a comment:</h2>
-      
-      <%= form_with( model: [ @article, Comment.new ], local: true) do |form| %>
-        
-     
-        <p>
-          <%= form.text_area :body, placeholder: "enter comment", required: true %>
-        </p>
-        <p>
-          <%= form.submit %>
-        </p>
-      <% end %>
-    </div>
+
 
       <% if @article.user_id == current_user.id %>
-        <%= link_to "Edit Blog", edit_article_path(@article), class: "btn btn-dark" %>
+        <%= link_to 'Edit Blog <i class="fas fa-pen"></i>'.html_safe , edit_article_path(@article), class: "btn btn-dark" %>
 
-        <%= link_to "Delete Blog", article_path(@article),
+        <%= link_to 'Delete Blog <i class="far fa-trash-alt"></i>'.html_safe , article_path(@article),
                       method: :delete,
                       data: { confirm: "Are you sure?" }, 
                       class: "btn btn-dark" %>

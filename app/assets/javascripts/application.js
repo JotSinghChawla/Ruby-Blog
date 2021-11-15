@@ -15,4 +15,3 @@
 //= require turbolinks
 //= require_tree .
 
-console.log('Find me in application.js file')
